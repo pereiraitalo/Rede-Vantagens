@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "uid": { "type": "string", "required": true },
+        "email": { "type": "string", "required": true },
+        "displayName": { "type": "string", "required": true },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "manager", "viewer"], "required": true },
+        "department": { "type": "string" },
+        "isActive": { "type": "boolean", "required": true },
+        "createdAt": { "type": "timestamp", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "Partner": {
+      "collection": "partners",
+      "fields": {
+        "fantasyName": { "type": "string", "required": true },
+        "corporateName": { "type": "string" },
+        "document": { "type": "string" },
+        "personType": { "type": "string", "enum": ["PJ", "PF"], "required": true },
+        "category": { "type": "string", "required": true },
+        "description": { "type": "string" },
+        "website": { "type": "string" },
+        "socialMedia": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "contactName": { "type": "string" },
+        "contactRole": { "type": "string" },
+        "origin": { "type": "string", "enum": ["active", "spontaneous", "referral", "event", "other"], "required": true },
+        "assignedToUid": { "type": "string" },
+        "assignedToName": { "type": "string" },
+        "identificationDate": { "type": "timestamp" },
+        "firstContactDate": { "type": "timestamp" },
+        "lastContactDate": { "type": "timestamp" },
+        "nextContactDate": { "type": "timestamp" },
+        "firstContactChannel": { "type": "string" },
+        "interestLevel": { "type": "string", "enum": ["low", "medium", "high"] },
+        "prospectingNotes": { "type": "string" },
+        "processNumber": { "type": "string" },
+        "officialPlatformUrl": { "type": "string" },
+        "submissionDate": { "type": "timestamp" },
+        "analysisStartDate": { "type": "timestamp" },
+        "decisionDate": { "type": "timestamp" },
+        "result": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "rejectionReason": { "type": "string" },
+        "acceptanceDate": { "type": "timestamp" },
+        "partnershipStartDate": { "type": "timestamp" },
+        "partnershipEndDate": { "type": "timestamp" },
+        "processNotes": { "type": "string" },
+        "benefitDescription": { "type": "string" },
+        "discountPercentage": { "type": "number" },
+        "targetAudience": { "type": "string" },
+        "conditions": { "type": "string" },
+        "validityDate": { "type": "timestamp" },
+        "scope": { "type": "string", "enum": ["municipal", "regional", "statewide", "national", "online"] },
+        "currentStage": { 
+          "type": "string", 
+          "enum": ["mapped", "prospecting", "waiting_docs", "in_analysis", "approved", "rejected", "gave_up", "inactive"],
+          "required": true 
+        },
+        "isArchived": { "type": "boolean", "required": true },
+        "createdAt": { "type": "timestamp", "required": true },
+        "createdByUid": { "type": "string", "required": true },
+        "createdByName": { "type": "string", "required": true },
+        "updatedAt": { "type": "timestamp", "required": true },
+        "updatedByUid": { "type": "string", "required": true },
+        "updatedByName": { "type": "string", "required": true }
+      }
+    },
+    "PartnerStatusHistory": {
+      "collection": "partnerStatusHistory",
+      "fields": {
+        "partnerId": { "type": "string", "required": true },
+        "partnerName": { "type": "string", "required": true },
+        "previousStage": { "type": "string", "required": true },
+        "newStage": { "type": "string", "required": true },
+        "changedAt": { "type": "timestamp", "required": true },
+        "changedByUid": { "type": "string", "required": true },
+        "changedByName": { "type": "string", "required": true },
+        "notes": { "type": "string" }
+      }
+    },
+    "Activity": {
+      "collection": "activities",
+      "fields": {
+        "partnerId": { "type": "string", "required": true },
+        "partnerName": { "type": "string", "required": true },
+        "type": { "type": "string", "enum": ["call", "email", "meeting", "visit", "followup", "other"], "required": true },
+        "date": { "type": "timestamp", "required": true },
+        "responsibleUid": { "type": "string", "required": true },
+        "responsibleName": { "type": "string", "required": true },
+        "description": { "type": "string", "required": true },
+        "result": { "type": "string" },
+        "nextAction": { "type": "string" },
+        "nextActionDate": { "type": "timestamp" },
+        "createdAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "Category": {
+      "collection": "categories",
+      "fields": {
+        "name": { "type": "string", "required": true },
+        "description": { "type": "string" },
+        "active": { "type": "boolean", "required": true },
+        "createdAt": { "type": "timestamp", "required": true }
+      }
+    },
+    "AuditLog": {
+      "collection": "auditLogs",
+      "fields": {
+        "action": { "type": "string", "required": true },
+        "entity": { "type": "string", "required": true },
+        "entityId": { "type": "string", "required": true },
+        "entityName": { "type": "string" },
+        "performedByUid": { "type": "string", "required": true },
+        "performedByName": { "type": "string", "required": true },
+        "details": { "type": "string" },
+        "timestamp": { "type": "timestamp", "required": true }
+      }
+    },
+    "AppSettings": {
+      "collection": "appSettings",
+      "fields": {
+        "key": { "type": "string", "required": true },
+        "value": { "type": "object" },
+        "updatedAt": { "type": "timestamp" }
+      }
+    }
+  }
+}

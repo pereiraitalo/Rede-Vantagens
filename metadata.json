@@ -1,0 +1,6 @@
+{
+  "name": "Rede+ Gestão",
+  "description": "Sistema de CRM e gestão de prospecção e acompanhamento dos parceiros do Programa Rede+ Vantagens do Tribunal de Justiça do Estado do Pará (TJPA).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
